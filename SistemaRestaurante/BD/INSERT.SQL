@@ -24,4 +24,47 @@ EXEC SP_InsertarEmpleado '72429555','David Sebastian', 'Martinez Surco','Av Lima
 
 -----------------
 
+EXEC SP_Registro_HoraEntrada '72429555';
+
+EXEC SP_Registro_HoraSalida '72429555';
+
+-------------
+
+EXEC SP_InsertarMesa 'A01',5,'S01'
+
+---------------
+
+EXEC SP_InsertarProveedor 'P01','Luis Garcia','Abarrotes San Luis',988977966;
+
+------
+
+EXEC SP_InsertarTipoInsumo 'I01','Abarrotes';
+EXEC SP_InsertarTipoInsumo 'I02','Vegetales';
+EXEC SP_InsertarTipoInsumo 'I03','Carnes';
+EXEC SP_InsertarTipoInsumo 'I04','Bebidas';
+
+
+-----------
+EXEC SP_InsertarInsumo 'SAL','Sal','Marina','P01','I01';
+EXEC SP_InsertarInsumo 'ACE','Aceite','Sonata','P01','I01';
+EXEC SP_InsertarInsumo 'HAR','Harina','Sonata','P01','I01';
+EXEC SP_InsertarInsumo 'LEV','Levadura','Royal','P01','I01';
+
+
+
+---------
+
+EXEC SP_InsertarPedido 1,NULL,50.00,12,'kg','S01','HAR';
+
+
+------------
+
+EXEC SP_InsertarSeccion 'Entradas';
+EXEC SP_InsertarSeccion 'Pastas y carnes';
+EXEC SP_InsertarSeccion 'Pizzas';
+EXEC SP_InsertarSeccion 'Postres y bebidas';
+
+
+-----------
+
 

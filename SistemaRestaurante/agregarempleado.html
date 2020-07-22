@@ -15,11 +15,19 @@
 
   <script src="js/Funciones/agregarempleado.js" type="text/javascript"></script>
 </head>
-<body background="img/bg_1.jpg">
+<body>
+
+<!--FORM-->
 
 <form id="fagregarempleado" class="container jumbotron" method="POST" action="php/agregarempleado.php" onsubmit="return validar()" enctype="multipart/form-data">
   <fieldset>
     <legend>Agregar Empleado</legend>
+
+    <div class="form-group">
+      <label>DNI</label>
+      <input name="dni" id="dni" type="text" class="form-control" placeholder="Numero de DNI">
+      <small id="recom" class="form-text text-muted">El numero de DNI sera el codigo de empleado dentro del sistema.</small>
+    </div>
     
     <div class="form-group">
       <label>Nombres</label>
@@ -29,6 +37,39 @@
     <div class="form-group">
       <label>Apellidos </label>
       <input name="apellidos" id="apellidos" type="text" class="form-control" placeholder="Apellidos completos">
+    </div>
+
+    <div class="form-group">
+      <label>Direccion </label>
+      <input name="direccion" id="direccion" type="text" class="form-control" placeholder="Direccion completa">
+    </div>
+
+    <div class="form-group">
+      <label>Telefono</label>
+      <input name="telf" id="telf" type="text" class="form-control" placeholder="Numero telefonico">
+    </div>
+
+    <div class="form-group">
+    <label>Fecha de nacimiento</label>
+    <input class="form-control" type="date" id="fech_nac" name="fech_nac">
+    </div>
+
+    <div class="form-group">
+      <label>Correo electronico</label>
+      <input name="correo" id="correo" type="text" class="form-control" placeholder="Email">
+    </div>
+
+    <div class="form-group">
+      <label>Salario</label>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">S/.</span>
+        </div>
+        <input name="salario" id="salario" type="text" class="form-control">
+        <div class="input-group-append">
+          <span class="input-group-text">.00</span>
+        </div>
+      </div>
     </div>
 
     <div class="form-group">
@@ -43,60 +84,14 @@
       </select>
     </div>
 
-    <div class="form-group">
-      <label>DNI</label>
-      <input name="dni" id="dni" type="text" class="form-control" placeholder="Numero de DNI">
-      <small id="recom" class="form-text text-muted">El numero de DNI sera el codigo de empleado dentro del sistema.</small>
-    </div>
-    </div>
-
-    <div class="form-group">
-      <label>Direccion</label>
-      <table class="table">
-        <tr>
-        <td>
-        <input name="direc" id="direc" type="text" class="form-control" placeholder="Avenida o calle">
-        </td>
-        <td>
-        <select class="custom-select">
-        <option selected="">Distrito</option>
-        <option value="dis1">Selva Alegre</option>
-        <option value="dis2">Cercado</option>
-        <option value="dis3">Cayma</option>
-        <option value="dis4">Cerro Colorado</option>
-        <option value="dis5">Jacobo Hunter</option>
-        <option value="dis6">Jose Luis Bustamante y Rivero</option>
-        <option value="dis7">Mariano Melgar</option>
-        <option value="dis8">Miraflores</option>
-        <option value="dis9">Paucarpata</option>
-        <option value="dis10">Socabaya</option>
-        <option value="dis11">Yanahuara</option>
-        </select>
-      </td>
-      </tr>
-      </table>
-    </div>
-
-    <div class="form-group">
-      <label>Telefono</label>
-      <input name="telf" id="telf" type="text" class="form-control" placeholder="Numero telefonico">
-    </div>
-
-    <div class="form-group">
-    <label>Fecha de nacimiento</label>
-    <input class="input" type="date" id="fech_nac" name="fech_nac" placeholder="Fecha de nacimiento">
-    </div>
-
-    <div class="form-group">
-      <label>Correo electronico</label>
-      <input name="correo" id="correo" type="text" class="form-control" placeholder="Email">
-    </div>
-
     <button type="button" value="Volver" class="btn btn-primary" onclick="location.href='administrador.html'">Atras</button>
     <button id="bt_guardar" value="Ingresar" type="submit" class="btn btn-primary">Guardar</button>
       
   </fieldset>
 </form>
+
+<!--FORM-->
+
 
 </body>
 </html>
