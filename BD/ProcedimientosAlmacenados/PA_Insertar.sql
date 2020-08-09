@@ -137,34 +137,22 @@ END
 -------------------------------------------
 ----PRODUCTO
 
----SECCION PRODUCTO
 
-CREATE PROCEDURE Insertar_SeccionP(
-@nom VARCHAR(45)
+---TIPO PRODUCTO
+
+CREATE PROCEDURE Insertar_TipoProd(
+@nom  VARCHAR(45)
 )
 AS
 BEGIN
-	INSERT INTO SECCION
+	INSERT INTO TIPO_PRODUCTO
 	VALUES(@nom)
-END
-
-
----CATEGORIA PRODUCTO
-
-CREATE PROCEDURE Insertar_CategoriaP(
-@nom  VARCHAR(45),
-@idsec INT
-)
-AS
-BEGIN
-	INSERT INTO CATEGORIA
-	VALUES(@nom, @idsec)
 END
 
 
 -- PRODUCTO
 
-CREATE PROCEDURE Insertar_Prooducto(
+CREATE PROCEDURE Insertar_Producto(
 @nom VARCHAR(45),
 @prec NUMERIC(5,2),
 @descr VARCHAR(200),

@@ -1,3 +1,12 @@
+
+
+--- Crea carpetas en las que se guardara la informacion
+EXEC sys.xp_create_subdir 'C:\RESTAURANTE\DATOS\'
+EXEC sys.xp_create_subdir 'C:\RESTAURANTE\LOG\'
+EXEC sys.xp_create_subdir 'C:\RESTAURANTE\BACKUP\'
+
+--- Se crea la base de datos RESTAURANTE
+
 CREATE DATABASE RESTAURANTE_BD
 ON PRIMARY(
 NAME = 'Restaurante_Datos', FILENAME = 'C:\RESTAURANTE\DATOS\Primary.mdf',
@@ -73,10 +82,6 @@ ALTER DATABASE RESTAURANTE_BD
 ADD FILEGROUP factura_2;
 ALTER DATABASE RESTAURANTE_BD
 ADD FILEGROUP factura_3;
-
-
-----ALTER DATABASE RESTAURANTE_BD
-----ADD FILEGROUP transacciones;
 
 
 -----------------------------------
@@ -266,5 +271,5 @@ SIZE=1GB, MAXSIZE=10GB, FILEGROWTH=25%
 
 
 
----Para comprobar
+---Para comprobar que las particiones pertenezcan a los fillgroups
 sp_helpdb[RESTAURANTE_BD];

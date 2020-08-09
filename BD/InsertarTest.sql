@@ -72,13 +72,13 @@ VALUES ( CONVERT(DATETIME, SYSDATETIME()), 2, NULL, 10.00, 500, 'kg', '12345', 1
 
 ------------
 
-INSERT INTO SECCION
-VALUES ('Entradas');
+--INSERT INTO SECCION
+--VALUES ('Entradas');
 
 ------------
 
-INSERT INTO CATEGORIA
-VALUES ('Ensaladas', 1);
+--INSERT INTO CATEGORIA
+--VALUES ('Ensaladas', 1);
 
 
 ------------
