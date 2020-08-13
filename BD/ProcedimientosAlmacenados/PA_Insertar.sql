@@ -245,6 +245,7 @@ END
 ---RESERVACION
 
 CREATE PROCEDURE Insertar_Reservacion(
+@fecha DATETIME,
 @idCli VARCHAR(8),
 @idMesa INT,
 @idSucur VARCHAR(5)
@@ -252,6 +253,6 @@ CREATE PROCEDURE Insertar_Reservacion(
 AS
 BEGIN
 	INSERT INTO RESERVACION
-	VALUES(CONVERT(DATETIME, SYSDATETIME()),0, @idCli, @idMesa, @idSucur)
+	VALUES(@fecha,0, @idCli, @idMesa, @idSucur)
 END
 

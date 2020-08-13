@@ -61,6 +61,7 @@ EXEC Select_Combos_BTipo '2';
 EXEC Select_Combos_BNombre 'Promo';
 
 
+EXEC Select_Ordenes;
 EXEC Select_Ordenes_Activas;
 
 

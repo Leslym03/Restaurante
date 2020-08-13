@@ -1,0 +1,182 @@
+--EMPLEADO
+
+
+
+CREATE PROCEDURE Actualizar_Empleado(
+@idemp VARCHAR(8),
+@dire VARCHAR(100),
+@tele VARCHAR(9),
+@cor VARCHAR(45),
+@sal NUMERIC(6,2),
+@idCargo INT
+)
+AS
+BEGIN
+	UPDATE EMPLEADO
+	SET DIRECCION=@dire, TELEFONO_EMPLEADO=@tele,
+	CORREO = @cor, SALARIO=@sal, ID_CARGO=@idCargo
+	WHERE ID_EMPLEADO=@idemp;
+END
+
+
+
+---MESA
+
+CREATE PROCEDURE Actualizar_Mesa(
+@idmesa INT,
+@capc INT
+)
+AS
+BEGIN
+	UPDATE MESA
+	SET CAPACIDAD=@capc
+	WHERE ID_MESA=@idmesa;
+END
+
+---PROVEEDOR
+
+CREATE PROCEDURE Actualizar_Proveedor(
+@idProv INT,
+@nombre VARCHAR(45),
+@nombreEmpresa VARCHAR(45),
+@telefono VARCHAR(9)
+)
+AS
+BEGIN
+	UPDATE PROVEEDOR
+	SET NOMBRE_PROVEEDOR=@nombre, NOMBRE_EMPRESA=@nombreEmpresa,
+	TELEFONO_PROVEEDOR=@telefono
+	WHERE ID_PROVEEDOR=@idProv;
+END
+
+
+---INSUMO
+
+CREATE PROCEDURE Actualizar_Insumo(
+@idins INT,
+@nom VARCHAR(45),
+@marc VARCHAR(45),
+@idprov INT,
+@idtipo INT
+)
+AS
+BEGIN
+	UPDATE INSUMO
+	SET NOMBRE_INSUMO=@nom, MARCA=@marc,
+	ID_PROVEEDOR=@idprov, ID_TIPO_INSUMO=@idtipo
+	WHERE ID_INSUMO=@idins;
+END
+
+
+---PEDIDO
+
+CREATE PROCEDURE Actualizar_Pedido(
+@fecha VARCHAR,
+@cant INT,
+@obser VARCHAR(100),
+@precins NUMERIC(6,2),
+@cantins INT,
+@medins VARCHAR(5),
+@insumo INT
+)
+AS
+BEGIN
+	UPDATE PEDIDO
+	SET CANTIDAD_PEDIDO=@cant, OBSERVACIONES=@obser,
+	PRECIO_INSUMO=@precins, CANTIDAD_INSUMO= @cantins,
+	MEDIDA_INSUMO=@medins, ID_INSUMO=@insumo
+	WHERE FECHA_PEDIDO = CONVERT(DATETIME, @fecha);
+END
+
+---PRODUCTO
+
+CREATE PROCEDURE Actualizar_Producto(
+@idprod INT,
+@nombre VARCHAR(45),
+@precio NUMERIC(5,2),
+@descrip VARCHAR(200), 
+@idtipo INT
+)
+AS
+BEGIN
+	UPDATE PRODUCTO
+	SET NOMBRE_PRODUCTO=@nombre, PRECIO_PRODUCTO=@precio,
+	DESCRIPCION=@descrip, ID_TIPO_PRODUCTO= @idtipo
+	WHERE ID_PRODUCTO=@idprod;
+END
+
+
+---COMBO
+
+CREATE PROCEDURE Actualizar_Combo(
+@idcomb INT,
+@nombre VARCHAR(45),
+@precio NUMERIC(6,2),
+@idtipo INT
+)
+AS
+BEGIN
+	UPDATE COMBO
+	SET NOMBRE_COMBO=@nombre, PRECIO_COMBO=@precio,
+	ID_TIPO_COMBO=@idtipo
+	WHERE ID_COMBO=@idcomb;
+END
+
+
+---ORDEN
+
+CREATE PROCEDURE Actualizar_Orden(
+@idord INT,
+@idmesa INT,
+@idemp VARCHAR(8)
+)
+AS
+BEGIN
+	UPDATE ORDEN
+	SET ID_MESA=@idmesa, ID_EMPLEADO=@idemp
+	WHERE ID_ORDEN=@idord;
+END
+
+
+---CLIENTE
+
+CREATE PROCEDURE Actualizar_Cliente(
+@idclie VARCHAR(8),
+@telf VARCHAR(9)
+)
+AS
+BEGIN
+	UPDATE CLIENTE
+	SET TELEFONO_CLIENTE=@telf
+	WHERE ID_CLIENTE=@idclie;
+END
+
+
+
+----CONFIRMACION RESERVACION
+
+CREATE PROCEDURE Confirmar_reservacion(
+@fecha DATETIME
+)
+AS
+BEGIN
+	UPDATE RESERVACION
+	SET CONFIRMACION=1
+	WHERE FECHA_RESERVACION=@fecha;
+END
+
+---RESERVACION
+
+CREATE PROCEDURE Actualizar_Reservacion(
+@fechaNueva VARCHAR,
+@fechaActual VARCHAR,
+@idcliente VARCHAR(8),
+@idmesa INT
+)
+AS
+BEGIN
+	UPDATE RESERVACION
+	SET FECHA_RESERVACION= CONVERT(DATETIME,@fechaNueva), ID_CLIENTE=@idcliente,
+	ID_MESA = @idmesa
+	WHERE FECHA_RESERVACION= CONVERT(DATETIME,@fechaActual);
+END
